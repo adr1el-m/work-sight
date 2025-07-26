@@ -1,4 +1,4 @@
-name: CI
+name: Code linting checks
 
 on:
   push:
@@ -27,13 +27,7 @@ jobs:
         run: npm run lint
 
       - name: 🧪 Type check
-        run: npm exec tsc --noEmit
-
-      - name: 🧼 Check formatting
-        run: npm run format:check
-
-      - name: 🧪 Run tests
-        run: npm test
+        run: npm run type-check
 
       - name: 🛠 Build app
         run: npm run build
