@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🧹 Lint code
+        run: npm run lint
+
+      - name: 🧪 Type check
+        run: npm exec tsc --noEmit
+
+      - name: 🧼 Check formatting
+        run: npm run format:check
+
+      - name: 🧪 Run tests
+        run: npm test
+
+      - name: 🛠 Build app
+        run: npm run build
