@@ -1,0 +1,279 @@
+.moodRating {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.moodGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+.moodOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 80px;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: var(--mood-color, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(102 126 234 / 15%);
+  }
+
+  &.selected {
+    border-color: var(--mood-color, #667eea);
+    background: linear-gradient(
+      135deg,
+      var(--mood-color, #667eea),
+      var(--mood-color, #764ba2)
+    );
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(102 126 234 / 30%);
+  }
+
+  &.hovered:not(.selected) {
+    border-color: var(--mood-color, #a5b4fc);
+    background: #f8fafc;
+  }
+}
+
+.emoji {
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.moodOption:hover .emoji {
+  transform: scale(1.1);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.selectedIndicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  background: rgb(255 255 255 / 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--mood-color, #667eea);
+  animation: bounceIn 0.3s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.description {
+  text-align: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: #374151;
+    font-weight: 500;
+  }
+}
+
+.selectedMood {
+  text-align: left;
+  padding: 1.5rem;
+  background: #ecfdf5;
+  border-radius: 12px;
+  border: 1px solid #d1fae5;
+  animation: slideIn 0.3s ease-out;
+}
+
+.moodInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.moodHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.moodEmoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.moodDetails {
+  flex: 1;
+
+  p {
+    margin: 0 0 0.5rem;
+    color: #065f46;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  small {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+}
+
+.moodAdvice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgb(255 255 255 / 70%);
+  border-radius: 8px;
+  border-left: 3px solid #10b981;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.adviceIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.confettiPiece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57
+  );
+  border-radius: 50%;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design
+@media (width <= 640px) {
+  .moodGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .moodOption {
+    padding: 0.75rem 0.25rem;
+    min-height: 70px;
+  }
+
+  .emoji {
+    font-size: 1.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+
+  .selectedMood {
+    padding: 1rem;
+  }
+
+  .moodHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .moodEmoji {
+    font-size: 1.5rem;
+  }
+}
+
+@media (width <= 480px) {
+  .moodGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .moodOption {
+    padding: 0.5rem 0.25rem;
+    min-height: 60px;
+  }
+
+  .emoji {
+    font-size: 1.25rem;
+  }
+
+  .label {
+    font-size: 0.7rem;
+  }
+}

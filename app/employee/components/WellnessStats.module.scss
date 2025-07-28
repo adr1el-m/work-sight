@@ -1,0 +1,206 @@
+.wellnessStats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.statCard {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  }
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.statIcon {
+  font-size: 1.25rem;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trendIcon {
+  font-size: 1.25rem;
+}
+
+.statSubtext {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.moodDistribution {
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #374151;
+  }
+}
+
+.distributionBars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.distributionBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.barLabel {
+  width: 80px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  flex-shrink: 0;
+}
+
+.barContainer {
+  flex: 1;
+  height: 24px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.6s ease;
+  min-width: 4px;
+}
+
+.lowMood {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.mediumMood {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.highMood {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.barValue {
+  width: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.insights {
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #374151;
+  }
+}
+
+.insightList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f0f9ff;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.insightIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+// Responsive design
+@media (width <= 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .statCard {
+    padding: 1rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .distributionBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .barLabel {
+    width: auto;
+  }
+
+  .barContainer {
+    width: 100%;
+  }
+
+  .barValue {
+    width: auto;
+    text-align: left;
+  }
+}
+
+@media (width <= 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .insight {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+}

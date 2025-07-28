@@ -1,0 +1,200 @@
+.quickActions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.quickMoodSection,
+.actionsSection {
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: #374151;
+  }
+}
+
+.quickMoodGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.quickMoodButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 80px;
+
+  &:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(102 126 234 / 15%);
+  }
+
+  &.selected {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(102 126 234 / 30%);
+  }
+}
+
+.quickMoodEmoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.quickMoodLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+
+  &:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(102 126 234 / 10%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.actionIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.actionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.actionLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.actionDescription {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.actionFeedback {
+  padding: 0.75rem 1rem;
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #065f46;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.currentStatus {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.statusItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statusLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.statusValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+
+  &.active {
+    color: #10b981;
+  }
+
+  &.inactive {
+    color: #6b7280;
+  }
+}
+
+// Responsive design
+@media (width <= 640px) {
+  .quickMoodGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .quickMoodButton {
+    padding: 0.75rem 0.25rem;
+    min-height: 70px;
+  }
+
+  .quickMoodEmoji {
+    font-size: 1.25rem;
+  }
+
+  .quickMoodLabel {
+    font-size: 0.7rem;
+  }
+
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .currentStatus {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
