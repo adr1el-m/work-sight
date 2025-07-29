@@ -237,3 +237,100 @@
     opacity: 1;
   }
 }
+
+// Assessment styles
+.assessmentIntro {
+  text-align: center;
+  padding: 1.5rem;
+
+  p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+}
+
+.assessmentButton {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgb(231 76 60 / 20%);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(231 76 60 / 30%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Modal styles
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgb(0 0 0 / 30%);
+  animation: slideInUp 0.3s ease-out;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: #6c757d;
+
+  &:hover {
+    background: #e9ecef;
+    color: #495057;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

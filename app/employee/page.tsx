@@ -8,6 +8,7 @@ import NudgeSuggestions from "./components/NudgeSuggestions";
 import DailyCheckIn from "./components/DailyCheckIn";
 import WellnessStats from "./components/WellnessStats";
 import QuickActions from "./components/QuickActions";
+import BurnoutAssessment from "./components/BurnoutAssessment";
 
 export default function EmployeeDashboard() {
   const [currentMood, setCurrentMood] = useState<number | null>(null);
@@ -19,6 +20,7 @@ export default function EmployeeDashboard() {
   const [moodHistory, setMoodHistory] = useState<
     Array<{ date: string; mood: number }>
   >([]);
+  const [showBurnoutAssessment, setShowBurnoutAssessment] = useState(false);
 
   useEffect(() => {
     loadUserData();
@@ -74,6 +76,11 @@ export default function EmployeeDashboard() {
   const resetDailyCheckIn = () => {
     setDailyCheckInCompleted(false);
     localStorage.removeItem("dailyCheckInCompleted");
+  };
+
+  const handleBurnoutAssessmentComplete = (results: any) => {
+    console.log("Burnout assessment completed:", results);
+    setShowBurnoutAssessment(false);
   };
 
   const shouldShowCheckIn = () => {
@@ -176,6 +183,24 @@ export default function EmployeeDashboard() {
               quietHoursEnabled={quietHoursEnabled}
             />
           </section>
+
+          {/* Burnout Assessment */}
+          <section className={styles.section}>
+            <h2>Burnout Assessment Tool</h2>
+            <div className={styles.assessmentIntro}>
+              <p>
+                Take a comprehensive assessment to measure your burnout risk
+                across four key dimensions: Exhaustion, Mental Distance,
+                Cognitive Impairment, and Emotional Impairment.
+              </p>
+              <button
+                onClick={() => setShowBurnoutAssessment(true)}
+                className={styles.assessmentButton}
+              >
+                🔥 Start Burnout Assessment
+              </button>
+            </div>
+          </section>
         </div>
 
         {/* Reset Check-in Button */}
@@ -184,6 +209,21 @@ export default function EmployeeDashboard() {
             <button onClick={resetDailyCheckIn} className={styles.resetButton}>
               Reset Daily Check-in
             </button>
+          </div>
+        )}
+
+        {/* Burnout Assessment Modal */}
+        {showBurnoutAssessment && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.modalContent}>
+              <button
+                onClick={() => setShowBurnoutAssessment(false)}
+                className={styles.modalClose}
+              >
+                ✕
+              </button>
+              <BurnoutAssessment onComplete={handleBurnoutAssessmentComplete} />
+            </div>
           </div>
         )}
       </main>

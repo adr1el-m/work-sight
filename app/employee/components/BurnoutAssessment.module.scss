@@ -1,0 +1,498 @@
+.burnoutAssessment {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+
+    h2 {
+      color: #2c3e50;
+      margin: 0 0 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .citation {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .completedAt {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0;
+    }
+  }
+
+  .infoSection {
+    margin-bottom: 2rem;
+
+    h3 {
+      color: #2c3e50;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    p {
+      color: #34495e;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    .scaleInfo {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+
+      h4 {
+        color: #2c3e50;
+        margin: 0 0 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .scaleOptions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+      }
+
+      .scaleOption {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #e9ecef;
+
+        .scaleValue {
+          font-weight: 600;
+          color: #2c3e50;
+          min-width: 20px;
+        }
+
+        .scaleLabel {
+          color: #6c757d;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .infoForm {
+    .formGroup {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e9ecef;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #3498db;
+          box-shadow: 0 0 0 3px rgb(52 152 219 / 10%);
+        }
+
+        &::placeholder {
+          color: #adb5bd;
+        }
+      }
+    }
+
+    .startButton {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgb(52 152 219 / 30%);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .progress {
+    margin: 1rem 0;
+    position: relative;
+
+    .progressBar {
+      height: 6px;
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .progressText {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+  }
+
+  .questionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .questionCard {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid #3498db;
+
+    .questionHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .questionNumber {
+        background: #3498db;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .dimension {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+
+    .questionText {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin: 0 0 1.5rem;
+      font-weight: 500;
+    }
+
+    .scaleGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .scaleOption {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.75rem;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      background: white;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #3498db;
+        background: #f8f9fa;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      input[type="radio"]:checked + .optionContent {
+        color: #3498db;
+        font-weight: 600;
+      }
+
+      input[type="radio"]:checked ~ .optionContent {
+        color: #3498db;
+        font-weight: 600;
+      }
+
+      .optionContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        width: 100%;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        .optionValue {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+
+        .optionLabel {
+          font-size: 0.8rem;
+          color: #6c757d;
+        }
+      }
+
+      &:has(input[type="radio"]:checked) {
+        border-color: #3498db;
+        background: #ebf3fd;
+        box-shadow: 0 2px 8px rgb(52 152 219 / 20%);
+      }
+    }
+  }
+
+  .assessmentActions {
+    text-align: center;
+
+    .completeButton {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgb(231 76 60 / 30%);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid transparent;
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+
+  .resultsContainer {
+    .overallScore {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 12px;
+
+      h3 {
+        color: #2c3e50;
+        margin: 0 0 1rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .riskLevel {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0.5rem 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .totalScore {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        margin: 0.5rem 0 0;
+      }
+    }
+
+    .dimensionScores {
+      margin-bottom: 2rem;
+
+      h3 {
+        color: #2c3e50;
+        margin: 0 0 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .dimensionsGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .dimensionCard {
+        background: white;
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+        }
+
+        h4 {
+          color: #2c3e50;
+          margin: 0 0 1rem;
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+
+        .dimensionScore {
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+    }
+
+    .recommendations {
+      margin-bottom: 2rem;
+
+      h3 {
+        color: #2c3e50;
+        margin: 0 0 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .recommendationsList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .recommendation {
+        background: white;
+        border-left: 4px solid #3498db;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.75rem;
+        border-radius: 0 8px 8px 0;
+        color: #2c3e50;
+        line-height: 1.5;
+        position: relative;
+
+        &::before {
+          content: "💡";
+          position: absolute;
+          left: -8px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: white;
+          padding: 0.25rem;
+          border-radius: 50%;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .resultsActions {
+      text-align: center;
+
+      .retakeButton {
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgb(149 165 166 / 30%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive design
+@media (width <= 768px) {
+  .burnoutAssessment {
+    padding: 1.5rem;
+    margin: 0 1rem;
+
+    .header h2 {
+      font-size: 1.5rem;
+    }
+
+    .questionCard {
+      padding: 1rem;
+
+      .questionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .scaleGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dimensionsGrid {
+      grid-template-columns: 1fr;
+    }
+
+    .scaleOptions {
+      grid-template-columns: 1fr;
+    }
+  }
+}
